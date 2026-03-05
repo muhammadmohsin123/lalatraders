@@ -1,0 +1,1832 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lala Arif Traders — Building Pakistan's Future</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,600;1,9..40,300&family=Playfair+Display:wght@400;700&display=swap"
+      rel="stylesheet" />
+    <style>
+      :root {
+        --gold: #c8922a;
+        --gold-light: #e5b84a;
+        --dark: #0d0d0d;
+        --dark2: #141414;
+        --dark3: #1c1c1c;
+        --mid: #2a2a2a;
+        --text: #e8e4dc;
+        --text-muted: #8a8278;
+        --white: #f5f1ea;
+        --accent: #c8922a;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: 'DM Sans', sans-serif;
+        background: var(--dark);
+        color: var(--text);
+        overflow-x: hidden;
+      }
+
+      /* ── NOISE TEXTURE OVERLAY ── */
+      body::before {
+        content: '';
+        position: fixed;
+        inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+        pointer-events: none;
+        z-index: 9999;
+        opacity: 0.35;
+      }
+
+      /* ── NAV ── */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 1.5rem;
+        background: rgba(13, 13, 13, 0.88);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(200, 146, 42, 0.15);
+        transition: padding 0.3s;
+      }
+
+      .nav-brand {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        text-decoration: none;
+      }
+
+      .nav-logo-mark {
+        width: 36px;
+        height: 36px;
+        border: 2px solid var(--gold);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 1rem;
+        color: var(--gold);
+        letter-spacing: 0.05em;
+        flex-shrink: 0;
+      }
+
+      .nav-brand-text {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.1;
+      }
+
+      .nav-brand-text span:first-child {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 1.05rem;
+        color: var(--gold);
+        letter-spacing: 0.12em;
+      }
+
+      .nav-brand-text span:last-child {
+        font-size: 0.6rem;
+        color: var(--text-muted);
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+      }
+
+      .nav-links {
+        display: none;
+        list-style: none;
+        gap: 2rem;
+        align-items: center;
+      }
+
+      .nav-links a {
+        color: var(--text-muted);
+        text-decoration: none;
+        font-size: 0.78rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        transition: color 0.2s;
+      }
+
+      .nav-links a:hover {
+        color: var(--gold);
+      }
+
+      .nav-cta {
+        display: none;
+        background: var(--gold);
+        color: var(--dark);
+        padding: 0.5rem 1.2rem;
+        border-radius: 2px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        text-decoration: none;
+        transition:
+          background 0.2s,
+          transform 0.2s;
+      }
+
+      .nav-cta:hover {
+        background: var(--gold-light);
+        transform: translateY(-1px);
+      }
+
+      .hamburger {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        padding: 4px;
+      }
+
+      .hamburger span {
+        display: block;
+        width: 22px;
+        height: 2px;
+        background: var(--text);
+        transition: all 0.3s;
+      }
+
+      @media (min-width: 768px) {
+        nav {
+          padding: 1rem 3rem;
+        }
+        .nav-links,
+        .nav-cta {
+          display: flex;
+        }
+        .hamburger {
+          display: none;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        nav {
+          padding: 1rem 5rem;
+        }
+      }
+
+      /* ── HERO ── */
+      #hero {
+        min-height: 100vh;
+        position: relative;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        padding: 7rem 1.5rem 4rem;
+      }
+
+      .hero-bg {
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(ellipse 80% 60% at 70% 50%, rgba(200, 146, 42, 0.08) 0%, transparent 60%), radial-gradient(ellipse 60% 80% at 20% 80%, rgba(200, 146, 42, 0.05) 0%, transparent 50%),
+          linear-gradient(160deg, #0d0d0d 0%, #141414 50%, #0d0d0d 100%);
+      }
+
+      .hero-grid-lines {
+        position: absolute;
+        inset: 0;
+        background-image: linear-gradient(rgba(200, 146, 42, 0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(200, 146, 42, 0.04) 1px, transparent 1px);
+        background-size: 60px 60px;
+        mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 0%, transparent 100%);
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 700px;
+      }
+
+      .hero-eyebrow {
+        font-size: 0.7rem;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 1.2rem;
+        opacity: 0;
+        animation: fadeUp 0.8s 0.2s forwards;
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+      }
+
+      .hero-eyebrow::before {
+        content: '';
+        display: block;
+        width: 32px;
+        height: 1px;
+        background: var(--gold);
+      }
+
+      h1 {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: clamp(3.2rem, 12vw, 7.5rem);
+        line-height: 0.92;
+        letter-spacing: 0.02em;
+        color: var(--white);
+        margin-bottom: 1.2rem;
+        opacity: 0;
+        animation: fadeUp 0.8s 0.4s forwards;
+      }
+
+      h1 em {
+        font-style: normal;
+        color: var(--gold);
+        display: block;
+      }
+
+      .hero-sub {
+        font-size: clamp(0.9rem, 2.5vw, 1.05rem);
+        color: var(--text-muted);
+        line-height: 1.7;
+        max-width: 480px;
+        margin-bottom: 2.5rem;
+        opacity: 0;
+        animation: fadeUp 0.8s 0.6s forwards;
+        font-weight: 300;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        opacity: 0;
+        animation: fadeUp 0.8s 0.8s forwards;
+      }
+
+      .btn-primary {
+        background: var(--gold);
+        color: var(--dark);
+        padding: 0.85rem 2rem;
+        border: none;
+        border-radius: 2px;
+        font-weight: 700;
+        font-size: 0.8rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        text-decoration: none;
+        cursor: pointer;
+        transition:
+          background 0.2s,
+          transform 0.2s,
+          box-shadow 0.2s;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .btn-primary:hover {
+        background: var(--gold-light);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(200, 146, 42, 0.3);
+      }
+
+      .btn-outline {
+        background: transparent;
+        color: var(--text);
+        padding: 0.85rem 2rem;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 2px;
+        font-weight: 400;
+        font-size: 0.8rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        text-decoration: none;
+        cursor: pointer;
+        transition:
+          border-color 0.2s,
+          color 0.2s,
+          transform 0.2s;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .btn-outline:hover {
+        border-color: var(--gold);
+        color: var(--gold);
+        transform: translateY(-2px);
+      }
+
+      .hero-stats {
+        position: absolute;
+        bottom: 3rem;
+        right: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        opacity: 0;
+        animation: fadeLeft 0.8s 1s forwards;
+      }
+
+      @media (min-width: 768px) {
+        #hero {
+          padding: 7rem 3rem 4rem;
+        }
+        .hero-stats {
+          right: 3rem;
+          flex-direction: row;
+          gap: 3rem;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        #hero {
+          padding: 7rem 5rem 4rem;
+        }
+        .hero-stats {
+          right: 5rem;
+        }
+      }
+
+      .stat-item {
+        text-align: center;
+      }
+
+      .stat-num {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 2.2rem;
+        color: var(--gold);
+        line-height: 1;
+        display: block;
+      }
+
+      .stat-label {
+        font-size: 0.65rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        margin-top: 0.25rem;
+        display: block;
+      }
+
+      /* ── MARQUEE BAND ── */
+      .marquee-band {
+        background: var(--gold);
+        overflow: hidden;
+        padding: 0.7rem 0;
+      }
+
+      .marquee-track {
+        display: flex;
+        gap: 3rem;
+        width: max-content;
+        animation: scroll 30s linear infinite;
+      }
+
+      .marquee-item {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 0.9rem;
+        letter-spacing: 0.2em;
+        color: var(--dark);
+        white-space: nowrap;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .marquee-item::after {
+        content: '◆';
+        font-size: 0.5rem;
+      }
+
+      @keyframes scroll {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(-50%);
+        }
+      }
+
+      /* ── ABOUT ── */
+      #about {
+        padding: 6rem 1.5rem;
+        position: relative;
+      }
+
+      @media (min-width: 768px) {
+        #about {
+          padding: 6rem 3rem;
+        }
+      }
+      @media (min-width: 1024px) {
+        #about {
+          padding: 8rem 5rem;
+        }
+      }
+
+      .about-inner {
+        display: grid;
+        gap: 4rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      @media (min-width: 900px) {
+        .about-inner {
+          grid-template-columns: 1fr 1fr;
+          align-items: center;
+        }
+      }
+
+      .section-label {
+        font-size: 0.68rem;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+      }
+
+      .section-label::before {
+        content: '';
+        display: block;
+        width: 24px;
+        height: 1px;
+        background: var(--gold);
+      }
+
+      h2 {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: clamp(2.4rem, 6vw, 4rem);
+        line-height: 1;
+        letter-spacing: 0.04em;
+        color: var(--white);
+        margin-bottom: 1.5rem;
+      }
+
+      h2 span {
+        color: var(--gold);
+      }
+
+      .about-text p {
+        color: var(--text-muted);
+        line-height: 1.8;
+        margin-bottom: 1.2rem;
+        font-weight: 300;
+        font-size: 0.95rem;
+      }
+
+      .about-visual {
+        position: relative;
+      }
+
+      .about-card-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1px;
+        background: rgba(200, 146, 42, 0.15);
+        border: 1px solid rgba(200, 146, 42, 0.15);
+      }
+
+      .about-card {
+        background: var(--dark2);
+        padding: 1.8rem 1.5rem;
+        transition: background 0.3s;
+      }
+
+      .about-card:hover {
+        background: var(--dark3);
+      }
+
+      .about-card-icon {
+        font-size: 1.8rem;
+        margin-bottom: 0.7rem;
+        display: block;
+      }
+
+      .about-card h4 {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 1.1rem;
+        letter-spacing: 0.1em;
+        color: var(--white);
+        margin-bottom: 0.4rem;
+      }
+
+      .about-card p {
+        font-size: 0.78rem;
+        color: var(--text-muted);
+        line-height: 1.6;
+      }
+
+      /* ── PRODUCTS ── */
+      #products {
+        padding: 6rem 1.5rem;
+        background: var(--dark2);
+      }
+
+      @media (min-width: 768px) {
+        #products {
+          padding: 6rem 3rem;
+        }
+      }
+      @media (min-width: 1024px) {
+        #products {
+          padding: 8rem 5rem;
+        }
+      }
+
+      .products-header {
+        max-width: 1200px;
+        margin: 0 auto 4rem;
+      }
+
+      .products-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1px;
+        background: rgba(200, 146, 42, 0.1);
+        border: 1px solid rgba(200, 146, 42, 0.1);
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      @media (min-width: 600px) {
+        .products-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      @media (min-width: 900px) {
+        .products-grid {
+          grid-template-columns: 1fr 1fr 1fr;
+        }
+      }
+
+      .product-card {
+        background: var(--dark);
+        padding: 2rem 1.8rem;
+        position: relative;
+        overflow: hidden;
+        cursor: default;
+        transition: background 0.3s;
+      }
+
+      .product-card::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--gold);
+        transition: width 0.4s ease;
+      }
+
+      .product-card:hover::before {
+        width: 100%;
+      }
+      .product-card:hover {
+        background: var(--dark3);
+      }
+
+      .product-card-num {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 3.5rem;
+        color: rgba(200, 146, 42, 0.08);
+        position: absolute;
+        top: 0.5rem;
+        right: 1rem;
+        line-height: 1;
+        pointer-events: none;
+      }
+
+      .product-icon {
+        font-size: 1.7rem;
+        margin-bottom: 1rem;
+        display: block;
+      }
+
+      .product-card h3 {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 1.3rem;
+        letter-spacing: 0.08em;
+        color: var(--white);
+        margin-bottom: 0.5rem;
+      }
+
+      .product-card p {
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        line-height: 1.7;
+      }
+
+      .product-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+        margin-top: 1rem;
+      }
+
+      .tag {
+        font-size: 0.65rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--gold);
+        border: 1px solid rgba(200, 146, 42, 0.3);
+        padding: 0.25rem 0.6rem;
+        border-radius: 1px;
+      }
+
+      /* ── PROJECTS ── */
+      #projects {
+        padding: 6rem 1.5rem;
+      }
+
+      @media (min-width: 768px) {
+        #projects {
+          padding: 6rem 3rem;
+        }
+      }
+      @media (min-width: 1024px) {
+        #projects {
+          padding: 8rem 5rem;
+        }
+      }
+
+      .projects-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .projects-grid {
+        display: grid;
+        gap: 1.5rem;
+        margin-top: 3rem;
+      }
+
+      @media (min-width: 768px) {
+        .projects-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .projects-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+        .projects-grid .project-featured {
+          grid-column: span 2;
+        }
+      }
+
+      .project-card {
+        border: 1px solid rgba(200, 146, 42, 0.15);
+        padding: 2rem;
+        position: relative;
+        background: var(--dark2);
+        transition:
+          border-color 0.3s,
+          transform 0.3s;
+      }
+
+      .project-card:hover {
+        border-color: rgba(200, 146, 42, 0.4);
+        transform: translateY(-3px);
+      }
+
+      .project-badge {
+        font-size: 0.62rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 1rem;
+        display: block;
+      }
+
+      .project-card h3 {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.2rem;
+        color: var(--white);
+        margin-bottom: 0.5rem;
+        line-height: 1.4;
+      }
+
+      .project-card p {
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        line-height: 1.7;
+      }
+
+      .project-partner {
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+        font-size: 0.72rem;
+        color: var(--text-muted);
+      }
+
+      .project-partner strong {
+        color: var(--text);
+      }
+
+      /* ── WHY US ── */
+      #why {
+        padding: 6rem 1.5rem;
+        background: var(--dark2);
+        position: relative;
+        overflow: hidden;
+      }
+
+      #why::before {
+        content: 'QUALITY';
+        position: absolute;
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: clamp(6rem, 20vw, 16rem);
+        color: rgba(200, 146, 42, 0.03);
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        white-space: nowrap;
+        pointer-events: none;
+        letter-spacing: 0.1em;
+      }
+
+      @media (min-width: 768px) {
+        #why {
+          padding: 6rem 3rem;
+        }
+      }
+      @media (min-width: 1024px) {
+        #why {
+          padding: 8rem 5rem;
+        }
+      }
+
+      .why-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+      }
+
+      .why-grid {
+        display: grid;
+        gap: 2rem;
+        margin-top: 3.5rem;
+      }
+
+      @media (min-width: 600px) {
+        .why-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      @media (min-width: 900px) {
+        .why-grid {
+          grid-template-columns: repeat(4, 1fr);
+        }
+      }
+
+      .why-item {
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+      }
+
+      .why-icon-wrap {
+        width: 48px;
+        height: 48px;
+        border: 1px solid rgba(200, 146, 42, 0.3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.3rem;
+        flex-shrink: 0;
+        transition:
+          background 0.3s,
+          border-color 0.3s;
+      }
+
+      .why-item:hover .why-icon-wrap {
+        background: rgba(200, 146, 42, 0.1);
+        border-color: var(--gold);
+      }
+
+      .why-item h4 {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 1.1rem;
+        letter-spacing: 0.08em;
+        color: var(--white);
+      }
+
+      .why-item p {
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        line-height: 1.7;
+      }
+
+      /* ── CONTACT ── */
+      #contact {
+        padding: 6rem 1.5rem;
+      }
+
+      @media (min-width: 768px) {
+        #contact {
+          padding: 6rem 3rem;
+        }
+      }
+      @media (min-width: 1024px) {
+        #contact {
+          padding: 8rem 5rem;
+        }
+      }
+
+      .contact-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        gap: 4rem;
+      }
+
+      @media (min-width: 900px) {
+        .contact-inner {
+          grid-template-columns: 1fr 1fr;
+          align-items: start;
+        }
+      }
+
+      .contact-info-items {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        margin-top: 2.5rem;
+      }
+
+      .contact-info-item {
+        display: flex;
+        gap: 1.2rem;
+        align-items: flex-start;
+      }
+
+      .contact-info-item-icon {
+        width: 42px;
+        height: 42px;
+        border: 1px solid rgba(200, 146, 42, 0.3);
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.1rem;
+      }
+
+      .contact-info-item-text strong {
+        display: block;
+        font-size: 0.7rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 0.25rem;
+      }
+
+      .contact-info-item-text span,
+      .contact-info-item-text a {
+        font-size: 0.9rem;
+        color: var(--text);
+        text-decoration: none;
+        line-height: 1.6;
+        display: block;
+        transition: color 0.2s;
+      }
+
+      .contact-info-item-text a:hover {
+        color: var(--gold);
+      }
+
+      /* Contact Form */
+      .contact-form {
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+      }
+
+      .form-row {
+        display: grid;
+        gap: 1.2rem;
+      }
+
+      @media (min-width: 500px) {
+        .form-row {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+      }
+
+      .form-group label {
+        font-size: 0.68rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+      }
+
+      .form-group input,
+      .form-group textarea,
+      .form-group select {
+        background: var(--dark2);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        color: var(--text);
+        padding: 0.8rem 1rem;
+        font-family: 'DM Sans', sans-serif;
+        font-size: 0.9rem;
+        border-radius: 1px;
+        outline: none;
+        transition: border-color 0.2s;
+        width: 100%;
+        -webkit-appearance: none;
+      }
+
+      .form-group input:focus,
+      .form-group textarea:focus,
+      .form-group select:focus {
+        border-color: var(--gold);
+      }
+
+      .form-group textarea {
+        resize: vertical;
+        min-height: 120px;
+      }
+
+      .form-group select option {
+        background: var(--dark2);
+      }
+
+      /* WhatsApp button */
+      .wa-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.7rem;
+        background: #25d366;
+        color: #fff;
+        padding: 1rem 2rem;
+        border-radius: 2px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.85rem;
+        letter-spacing: 0.05em;
+        transition:
+          background 0.2s,
+          transform 0.2s;
+        margin-top: 0.5rem;
+        width: fit-content;
+      }
+
+      .wa-btn:hover {
+        background: #1abe5c;
+        transform: translateY(-2px);
+      }
+
+      .wa-btn svg {
+        flex-shrink: 0;
+      }
+
+      /* ── FOOTER ── */
+      footer {
+        background: var(--dark2);
+        border-top: 1px solid rgba(200, 146, 42, 0.15);
+        padding: 3rem 1.5rem 2rem;
+      }
+
+      @media (min-width: 768px) {
+        footer {
+          padding: 3rem 3rem 2rem;
+        }
+      }
+      @media (min-width: 1024px) {
+        footer {
+          padding: 3rem 5rem 2rem;
+        }
+      }
+
+      .footer-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .footer-top {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 2.5rem;
+        padding-bottom: 2.5rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      }
+
+      .footer-brand p {
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        max-width: 280px;
+        line-height: 1.7;
+        margin-top: 0.8rem;
+      }
+
+      .footer-links h5 {
+        font-size: 0.68rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 1rem;
+      }
+
+      .footer-links ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .footer-links ul a {
+        font-size: 0.82rem;
+        color: var(--text-muted);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+
+      .footer-links ul a:hover {
+        color: var(--gold);
+      }
+
+      .footer-bottom {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .footer-bottom p {
+        font-size: 0.75rem;
+        color: var(--text-muted);
+      }
+
+      .footer-bottom a {
+        color: var(--gold);
+        text-decoration: none;
+      }
+
+      /* ── ANIMATIONS ── */
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeLeft {
+        from {
+          opacity: 0;
+          transform: translateX(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition:
+          opacity 0.7s ease,
+          transform 0.7s ease;
+      }
+
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* ── DIVIDER ── */
+      .gold-divider {
+        width: 48px;
+        height: 2px;
+        background: var(--gold);
+        margin: 1.5rem 0;
+      }
+
+      /* ── MOBILE NAV MENU ── */
+      .mobile-menu {
+        position: fixed;
+        inset: 0;
+        background: var(--dark);
+        z-index: 999;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        transform: translateX(100%);
+        transition: transform 0.4s ease;
+      }
+
+      .mobile-menu.open {
+        transform: translateX(0);
+      }
+
+      .mobile-menu a {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 2.5rem;
+        letter-spacing: 0.1em;
+        color: var(--text);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+
+      .mobile-menu a:hover {
+        color: var(--gold);
+      }
+
+      .mobile-close {
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+        background: none;
+        border: none;
+        color: var(--text);
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+
+      /* Scroll to top */
+      #scrollTop {
+        position: fixed;
+        bottom: 2rem;
+        right: 1.5rem;
+        width: 40px;
+        height: 40px;
+        background: var(--gold);
+        color: var(--dark);
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.1rem;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s;
+        z-index: 500;
+        border-radius: 2px;
+      }
+
+      #scrollTop.show {
+        opacity: 1;
+        pointer-events: all;
+      }
+      #scrollTop:hover {
+        background: var(--gold-light);
+      }
+
+      /* Certifications badge row */
+      .cert-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+
+      .cert-badge {
+        font-size: 0.7rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 0.5rem 0.9rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .cert-badge::before {
+        content: '✓';
+        color: var(--gold);
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ── MOBILE MENU ── -->
+    <div class="mobile-menu" id="mobileMenu">
+      <button class="mobile-close" id="mobileClose">✕</button>
+      <a href="#about" onclick="closeMobile()">About</a>
+      <a href="#products" onclick="closeMobile()">Products</a>
+      <a href="#projects" onclick="closeMobile()">Projects</a>
+      <a href="#why" onclick="closeMobile()">Why Us</a>
+      <a href="#contact" onclick="closeMobile()">Contact</a>
+    </div>
+
+    <!-- ── NAV ── -->
+    <nav>
+      <a href="#hero" class="nav-brand">
+        <div class="nav-logo-mark">LA</div>
+        <div class="nav-brand-text">
+          <span>Lala Arif Traders</span>
+          <span>SMC-Private Limited</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#why">Why Us</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="#contact" class="nav-cta">Get a Quote</a>
+      <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+    </nav>
+
+    <!-- ── HERO ── -->
+    <section id="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-grid-lines"></div>
+      <div class="hero-content">
+        <div class="hero-eyebrow">Muzaffargarh · Punjab · Pakistan</div>
+        <h1>Building<em>Pakistan's</em>Future.</h1>
+        <p class="hero-sub">Premium construction materials, infrastructure supplies, and nationwide logistics — delivered with integrity and precision since 2017.</p>
+        <div class="hero-actions">
+          <a href="#products" class="btn-primary">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.3 5H17M17 17a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-8 2a2 2 0 1 1-4 0 2 2 0 0 1 4 0z" />
+            </svg>
+            Our Products
+          </a>
+          <a href="#contact" class="btn-outline">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></svg>
+            Get in Touch
+          </a>
+        </div>
+
+        <div class="cert-row">
+          <div class="cert-badge">SECP Registered</div>
+          <div class="cert-badge">FBR Taxpayer</div>
+          <div class="cert-badge">NTN Certified</div>
+          <div class="cert-badge">HBL Partner</div>
+        </div>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-num">7+</span>
+          <span class="stat-label">Years Active</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">7</span>
+          <span class="stat-label">Mega Projects</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">20+</span>
+          <span class="stat-label">Product Lines</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── MARQUEE ── -->
+    <div class="marquee-band">
+      <div class="marquee-track">
+        <!-- duplicated for infinite scroll -->
+        <div class="marquee-item">DG Cement</div>
+        <div class="marquee-item">Fauji Cement</div>
+        <div class="marquee-item">Mughal Steel</div>
+        <div class="marquee-item">Crush Stones</div>
+        <div class="marquee-item">Asphalt</div>
+        <div class="marquee-item">HDPE Pipes</div>
+        <div class="marquee-item">Solar Systems</div>
+        <div class="marquee-item">Scaffolding</div>
+        <div class="marquee-item">Geotextile</div>
+        <div class="marquee-item">Logistics</div>
+        <div class="marquee-item">DG Cement</div>
+        <div class="marquee-item">Fauji Cement</div>
+        <div class="marquee-item">Mughal Steel</div>
+        <div class="marquee-item">Crush Stones</div>
+        <div class="marquee-item">Asphalt</div>
+        <div class="marquee-item">HDPE Pipes</div>
+        <div class="marquee-item">Solar Systems</div>
+        <div class="marquee-item">Scaffolding</div>
+        <div class="marquee-item">Geotextile</div>
+        <div class="marquee-item">Logistics</div>
+      </div>
+    </div>
+
+    <!-- ── ABOUT ── -->
+    <section id="about">
+      <div class="about-inner">
+        <div class="about-text reveal">
+          <div class="section-label">Who We Are</div>
+          <h2>Trusted Partner in <span>Construction</span></h2>
+          <div class="gold-divider"></div>
+          <p>
+            Lala Arif Traders (SMC-Private) Limited is a professionally managed construction material supply and logistics company, headquartered in Muzaffargarh, Punjab. Incorporated in 2017, we have
+            actively supported infrastructure and development projects across Pakistan.
+          </p>
+          <p>
+            Our proprietor, Muhammad Arif, has built strong relationships with Pakistan's top cement, steel, and materials manufacturers — making us the go-to partner for mega projects, road
+            construction, housing schemes, and power & energy developments.
+          </p>
+          <p>From a single bag of cement to full-scale project supply chains, we deliver with the same commitment to quality, professionalism, and on-time performance.</p>
+          <a href="#contact" class="btn-primary" style="margin-top: 1.5rem; width: fit-content"> Partner With Us </a>
+        </div>
+        <div class="about-visual reveal">
+          <div class="about-card-grid">
+            <div class="about-card">
+              <span class="about-card-icon">🏗️</span>
+              <h4>Infrastructure</h4>
+              <p>Roads, highways, canals, and mega projects across Pakistan.</p>
+            </div>
+            <div class="about-card">
+              <span class="about-card-icon">🏠</span>
+              <h4>Housing</h4>
+              <p>Complete material supply for housing schemes and residential builds.</p>
+            </div>
+            <div class="about-card">
+              <span class="about-card-icon">⚡</span>
+              <h4>Energy</h4>
+              <p>Solar systems and materials for power & energy projects.</p>
+            </div>
+            <div class="about-card">
+              <span class="about-card-icon">🚛</span>
+              <h4>Logistics</h4>
+              <p>Nationwide transport network for timely on-site delivery.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── PRODUCTS ── -->
+    <section id="products">
+      <div class="products-header reveal">
+        <div class="section-label">What We Supply</div>
+        <h2>Our <span>Product</span> Range</h2>
+        <div class="gold-divider"></div>
+      </div>
+      <div class="products-grid">
+        <div class="product-card reveal">
+          <div class="product-card-num">01</div>
+          <span class="product-icon">🏭</span>
+          <h3>Cement</h3>
+          <p>Authorized dealer for Pakistan's leading cement brands for all project scales.</p>
+          <div class="product-tags">
+            <span class="tag">DG Cement</span>
+            <span class="tag">Fauji Cement</span>
+          </div>
+        </div>
+
+        <div class="product-card reveal">
+          <div class="product-card-num">02</div>
+          <span class="product-icon">⚙️</span>
+          <h3>Steel & Iron</h3>
+          <p>High-strength rebar, girder steel, and structural sections for construction.</p>
+          <div class="product-tags">
+            <span class="tag">Mughal Steel</span>
+            <span class="tag">Steel Scrap</span>
+          </div>
+        </div>
+
+        <div class="product-card reveal">
+          <div class="product-card-num">03</div>
+          <span class="product-icon">🪨</span>
+          <h3>Stones & Aggregates</h3>
+          <p>Crush stones, boulder stones, big stone pitching, subgrade, subbase, ABC.</p>
+          <div class="product-tags">
+            <span class="tag">Crush</span>
+            <span class="tag">Boulder</span>
+            <span class="tag">Gravel</span>
+          </div>
+        </div>
+
+        <div class="product-card reveal">
+          <div class="product-card-num">04</div>
+          <span class="product-icon">🛣️</span>
+          <h3>Road Materials</h3>
+          <p>Asphalt, sand, gravel with less than 5% carbonated content for roads.</p>
+          <div class="product-tags">
+            <span class="tag">Asphalt</span>
+            <span class="tag">Sand</span>
+          </div>
+        </div>
+
+        <div class="product-card reveal">
+          <div class="product-card-num">05</div>
+          <span class="product-icon">🪵</span>
+          <h3>Bricks & Blocks</h3>
+          <p>Standard bricks, concrete blocks, and uni pavers in multiple sizes and shapes.</p>
+          <div class="product-tags">
+            <span class="tag">Bricks</span>
+            <span class="tag">Concrete Blocks</span>
+            <span class="tag">Pavers</span>
+          </div>
+        </div>
+
+        <div class="product-card reveal">
+          <div class="product-card-num">06</div>
+          <span class="product-icon">🔧</span>
+          <h3>Pipes & Fittings</h3>
+          <p>HDPE, PPRC, UPVC, concrete pipes. Euro Gulf, Popular, Beta brands available.</p>
+          <div class="product-tags">
+            <span class="tag">HDPE</span>
+            <span class="tag">Euro Gulf</span>
+            <span class="tag">Beta</span>
+          </div>
+        </div>
+
+        <div class="product-card reveal">
+          <div class="product-card-num">07</div>
+          <span class="product-icon">⚡</span>
+          <h3>Electrical & Cables</h3>
+          <p>Plastic, Fast, Newage and Star cables. Aluminium profiles and scaffolding.</p>
+          <div class="product-tags">
+            <span class="tag">Cables</span>
+            <span class="tag">Aluminium</span>
+          </div>
+        </div>
+
+        <div class="product-card reveal">
+          <div class="product-card-num">08</div>
+          <span class="product-icon">☀️</span>
+          <h3>Solar Systems</h3>
+          <p>Solar plates, lithium batteries, inverters, fitting & installation services.</p>
+          <div class="product-tags">
+            <span class="tag">Panels</span>
+            <span class="tag">Batteries</span>
+            <span class="tag">Inverters</span>
+          </div>
+        </div>
+
+        <div class="product-card reveal">
+          <div class="product-card-num">09</div>
+          <span class="product-icon">🏗️</span>
+          <h3>Machinery & Parts</h3>
+          <p>Loader, excavator supply and heavy machinery spare parts for project sites.</p>
+          <div class="product-tags">
+            <span class="tag">Excavators</span>
+            <span class="tag">Spare Parts</span>
+          </div>
+        </div>
+
+        <div class="product-card reveal">
+          <div class="product-card-num">10</div>
+          <span class="product-icon">🛡️</span>
+          <h3>Safety & Geotextile</h3>
+          <p>Safety PPE items, water stopper geotextile, felt geotextile for infrastructure.</p>
+          <div class="product-tags">
+            <span class="tag">Safety</span>
+            <span class="tag">Geotextile</span>
+          </div>
+        </div>
+
+        <div class="product-card reveal">
+          <div class="product-card-num">11</div>
+          <span class="product-icon">🪑</span>
+          <h3>Interior & Furnishing</h3>
+          <p>Porta sanitary ware, fans (SK/GFC/Pak), furniture, paints and crockery.</p>
+          <div class="product-tags">
+            <span class="tag">Porta</span>
+            <span class="tag">Furniture</span>
+            <span class="tag">Paints</span>
+          </div>
+        </div>
+
+        <div class="product-card reveal">
+          <div class="product-card-num">12</div>
+          <span class="product-icon">🚛</span>
+          <h3>Logistics & Transport</h3>
+          <p>Nationwide transportation network for timely delivery to any project site.</p>
+          <div class="product-tags">
+            <span class="tag">Nationwide</span>
+            <span class="tag">On-time</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── PROJECTS ── -->
+    <section id="projects">
+      <div class="projects-inner">
+        <div class="reveal">
+          <div class="section-label">Track Record</div>
+          <h2>Associated <span>Projects</span></h2>
+          <div class="gold-divider"></div>
+        </div>
+        <div class="projects-grid">
+          <div class="project-card project-featured reveal">
+            <span class="project-badge">Motorway · Ongoing</span>
+            <h3>Peshawar – Karachi Motorway (Multan–Sukkur Section)</h3>
+            <p>Supply of construction materials for one of Pakistan's most strategic motorway stretches, connecting Multan to Sukkur under the CPEC umbrella.</p>
+            <div class="project-partner">Partner: <strong>China State Construction Engineering Corporation Limited (CSCEC)</strong></div>
+          </div>
+
+          <div class="project-card reveal">
+            <span class="project-badge">Infrastructure</span>
+            <h3>Interchange on Khanewal & Lodhran Road</h3>
+            <p>Construction materials and logistics support for the interchange project.</p>
+            <div class="project-partner">Partner: <strong>IKAN Engineering Services (Pvt.) Ltd.</strong></div>
+          </div>
+
+          <div class="project-card reveal">
+            <span class="project-badge">Housing · Defence</span>
+            <h3>DHA Defence Housing Multan</h3>
+            <p>Comprehensive construction supply services for DHA Multan's residential and infrastructure development.</p>
+            <div class="project-partner">Partner: <strong>DHA Construction Company</strong></div>
+          </div>
+
+          <div class="project-card reveal">
+            <span class="project-badge">Energy · Thar</span>
+            <h3>Thar Engro Coal Power Project — Block I & II</h3>
+            <p>Material supply for one of Pakistan's largest coal-to-power initiatives in Thar Coalfield, Sindh.</p>
+            <div class="project-partner">Partner: <strong>Shanghai Electric / SECMC & Engro Corporation</strong></div>
+          </div>
+
+          <div class="project-card reveal">
+            <span class="project-badge">Rail · Infrastructure</span>
+            <h3>Engro Thar Coal Power (Thar-II)</h3>
+            <p>Construction materials for the Thar-II power project under Hub Power Company.</p>
+            <div class="project-partner">Partner: <strong>China Railway First Group Co., Ltd. (CRFG)</strong></div>
+          </div>
+
+          <div class="project-card reveal">
+            <span class="project-badge">Karachi · Waste</span>
+            <h3>Landfill Project — Karachi</h3>
+            <p>Auxiliary and construction material supply for the Karachi landfill management project.</p>
+            <div class="project-partner">Partner: <strong>China State Third Engineering Co. Ltd.</strong></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── WHY US ── -->
+    <section id="why">
+      <div class="why-inner">
+        <div class="reveal">
+          <div class="section-label">Our Commitment</div>
+          <h2>Why Choose <span>Us</span></h2>
+          <div class="gold-divider"></div>
+        </div>
+        <div class="why-grid">
+          <div class="why-item reveal">
+            <div class="why-icon-wrap">🏆</div>
+            <h4>Premium Quality</h4>
+            <p>We source from Pakistan's most reputable manufacturers — DG Cement, Fauji, Mughal Steel — ensuring every delivery meets project specs.</p>
+          </div>
+          <div class="why-item reveal">
+            <div class="why-icon-wrap">🚀</div>
+            <h4>Timely Delivery</h4>
+            <p>Our nationwide logistics fleet ensures materials reach your site on schedule, keeping your projects on track.</p>
+          </div>
+          <div class="why-item reveal">
+            <div class="why-icon-wrap">🤝</div>
+            <h4>Proven Partnerships</h4>
+            <p>Trusted by Chinese and Pakistani construction giants on CPEC and energy projects — our track record speaks for itself.</p>
+          </div>
+          <div class="why-item reveal">
+            <div class="why-icon-wrap">📋</div>
+            <h4>One-Stop Supply</h4>
+            <p>From cement to solar panels, from steel rebar to safety gear — reduce vendor complexity with a single reliable partner.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CONTACT ── -->
+    <section id="contact">
+      <div class="contact-inner">
+        <div class="reveal">
+          <div class="section-label">Reach Us</div>
+          <h2>Get a <span>Quote</span></h2>
+          <div class="gold-divider"></div>
+          <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.8; max-width: 400px">
+            Ready to supply your next project? Reach out via WhatsApp for a fast response, or fill the form and our team will contact you within 24 hours.
+          </p>
+
+          <div class="contact-info-items">
+            <div class="contact-info-item">
+              <div class="contact-info-item-icon">📍</div>
+              <div class="contact-info-item-text">
+                <strong>Head Office</strong>
+                <span>Jhang Road, Near Universal Iron Store</span>
+                <span>Muzaffargarh, Punjab, Pakistan</span>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-info-item-icon">📞</div>
+              <div class="contact-info-item-text">
+                <strong>Phone / WhatsApp</strong>
+                <a href="tel:+923000222270">+92 3000-222270</a>
+                <a href="tel:+923120222270">+92 3120-222270</a>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-info-item-icon">✉️</div>
+              <div class="contact-info-item-text">
+                <strong>Email</strong>
+                <a href="mailto:admin@lalatraders.com">admin@lalatraders.com</a>
+                <a href="mailto:lalaariftraders@gmail.com">lalaariftraders@gmail.com</a>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-info-item-icon">🌐</div>
+              <div class="contact-info-item-text">
+                <strong>Website</strong>
+                <a href="https://lalatraders.com">lalatraders.com</a>
+              </div>
+            </div>
+          </div>
+
+          <a href="https://wa.me/923000222270?text=Hello,%20I%20am%20interested%20in%20your%20construction%20materials%20and%20would%20like%20a%20quote." class="wa-btn" target="_blank">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+            </svg>
+            Chat on WhatsApp
+          </a>
+        </div>
+
+        <div class="reveal">
+          <form class="contact-form" onsubmit="handleSubmit(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="fname">Full Name</label>
+                <input type="text" id="fname" placeholder="Muhammad Arif" required />
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" placeholder="+92 300 0000000" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" placeholder="you@company.com" />
+            </div>
+            <div class="form-group">
+              <label for="product">Product / Service Required</label>
+              <select id="product">
+                <option value="">— Select a category —</option>
+                <option>Cement (DG / Fauji)</option>
+                <option>Steel & Iron (Mughal)</option>
+                <option>Stones & Aggregates</option>
+                <option>Road Materials (Asphalt / Sand)</option>
+                <option>Bricks & Concrete Blocks</option>
+                <option>Pipes & Fittings</option>
+                <option>Electrical & Cables</option>
+                <option>Solar Systems</option>
+                <option>Heavy Machinery & Spare Parts</option>
+                <option>Safety & Geotextile</option>
+                <option>Logistics & Transport</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Project Details & Quantity</label>
+              <textarea id="message" placeholder="Describe your project, required quantities, delivery location…"></textarea>
+            </div>
+            <button type="submit" class="btn-primary">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="22" y1="2" x2="11" y2="13" />
+                <polygon points="22 2 15 22 11 13 2 9 22 2" />
+              </svg>
+              Send Enquiry
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FOOTER ── -->
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <div class="nav-brand" style="text-decoration: none; display: flex; align-items: center; gap: 0.6rem">
+              <div class="nav-logo-mark" style="width: 40px; height: 40px; font-size: 1.1rem">LA</div>
+              <div class="nav-brand-text">
+                <span style="font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; color: var(--gold); letter-spacing: 0.12em">Lala Arif Traders</span>
+                <span style="font-size: 0.65rem; color: var(--text-muted); letter-spacing: 0.15em; text-transform: uppercase">SMC-Private Limited</span>
+              </div>
+            </div>
+            <p>Pakistan's trusted partner for construction materials, infrastructure supply, and nationwide logistics. Building a stronger Pakistan since 2017.</p>
+          </div>
+          <div class="footer-links">
+            <h5>Navigation</h5>
+            <ul>
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#products">Products</a></li>
+              <li><a href="#projects">Projects</a></li>
+              <li><a href="#why">Why Us</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-links">
+            <h5>Key Products</h5>
+            <ul>
+              <li><a href="#products">DG & Fauji Cement</a></li>
+              <li><a href="#products">Mughal Steel</a></li>
+              <li><a href="#products">Stones & Asphalt</a></li>
+              <li><a href="#products">Solar Systems</a></li>
+              <li><a href="#products">HDPE / Euro Gulf Pipes</a></li>
+            </ul>
+          </div>
+          <div class="footer-links">
+            <h5>Legal</h5>
+            <ul>
+              <li><a href="#">NTN: 4788612-5</a></li>
+              <li><a href="#">Reg: 3230453160773</a></li>
+              <li><a href="#">SECP Inc. No: 0184967</a></li>
+              <li><a href="#">RTO: Multan</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2025 Lala Arif Traders (SMC-Private) Limited · <a href="https://lalatraders.com">lalatraders.com</a></p>
+          <p>Proprietor: <strong style="color: var(--text)">Muhammad Arif</strong> · Muzaffargarh, Punjab, Pakistan</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ── SCROLL TO TOP ── -->
+    <button id="scrollTop" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" title="Back to top">↑</button>
+
+    <script>
+      // Mobile menu
+      const hamburger = document.getElementById('hamburger');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const mobileClose = document.getElementById('mobileClose');
+
+      hamburger.addEventListener('click', () => mobileMenu.classList.add('open'));
+      mobileClose.addEventListener('click', () => mobileMenu.classList.remove('open'));
+
+      function closeMobile() {
+        mobileMenu.classList.remove('open');
+      }
+
+      // Scroll reveal
+      const revealEls = document.querySelectorAll('.reveal');
+      const observer = new IntersectionObserver(
+        entries => {
+          entries.forEach((entry, i) => {
+            if (entry.isIntersecting) {
+              setTimeout(() => entry.target.classList.add('visible'), i * 80);
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.1 },
+      );
+
+      revealEls.forEach(el => observer.observe(el));
+
+      // Scroll to top button
+      const scrollTopBtn = document.getElementById('scrollTop');
+      window.addEventListener('scroll', () => {
+        scrollTopBtn.classList.toggle('show', window.scrollY > 400);
+      });
+
+      // Form submit handler
+      function handleSubmit(e) {
+        e.preventDefault();
+        const btn = e.target.querySelector('button[type="submit"]');
+        btn.textContent = '✓ Enquiry Sent!';
+        btn.style.background = '#25D366';
+        btn.style.color = '#fff';
+        setTimeout(() => {
+          btn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Send Enquiry`;
+          btn.style.background = '';
+          btn.style.color = '';
+          e.target.reset();
+        }, 3000);
+      }
+    </script>
+  </body>
+</html>
