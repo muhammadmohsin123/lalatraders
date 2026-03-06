@@ -201,7 +201,8 @@
         min-height: 100vh;
         position: relative;
         display: flex;
-        align-items: center;
+        flex-direction: column;
+        align-items: flex-start;
         overflow: hidden;
         padding: 7rem 1.5rem 4rem;
       }
@@ -225,7 +226,8 @@
       .hero-content {
         position: relative;
         z-index: 2;
-        max-width: 700px;
+        width: 100%;
+        max-width: none;
       }
 
       .hero-eyebrow {
@@ -270,7 +272,7 @@
         font-size: clamp(0.9rem, 2.5vw, 1.05rem);
         color: var(--text-muted);
         line-height: 1.7;
-        max-width: 480px;
+        max-width: none;
         margin-bottom: 2.5rem;
         opacity: 0;
         animation: fadeUp 0.8s 0.6s forwards;
@@ -283,6 +285,17 @@
         gap: 1rem;
         opacity: 0;
         animation: fadeUp 0.8s 0.8s forwards;
+      }
+
+      @media (max-width: 767px) {
+        .hero-actions {
+          width: 100%;
+        }
+
+        .hero-actions a {
+          width: 100%;
+          justify-content: center;
+        }
       }
 
       .btn-primary {
@@ -340,24 +353,55 @@
       }
 
       .hero-stats {
-        position: absolute;
-        bottom: 3rem;
-        right: 1.5rem;
-        display: flex;
-        flex-direction: column;
-        gap: 1.5rem;
+        position: static;
+        margin-top: 2rem;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.6rem;
+        width: 100%;
+        max-width: none;
         opacity: 0;
         animation: fadeLeft 0.8s 1s forwards;
       }
 
+      .stat-item {
+        text-align: center;
+        border: 1px solid rgba(200, 146, 42, 0.2);
+        background: rgba(255, 255, 255, 0.01);
+        padding: 0.8rem 0.4rem;
+      }
+
       @media (min-width: 768px) {
         #hero {
+          flex-direction: row;
+          align-items: center;
           padding: 7rem 3rem 4rem;
         }
+
+        .hero-content {
+          max-width: 700px;
+        }
+
+        .hero-sub {
+          max-width: 480px;
+        }
+
         .hero-stats {
+          position: absolute;
+          bottom: 3rem;
           right: 3rem;
+          margin-top: 0;
+          width: auto;
+          max-width: none;
+          display: flex;
           flex-direction: row;
           gap: 3rem;
+        }
+
+        .stat-item {
+          border: none;
+          background: transparent;
+          padding: 0;
         }
       }
 
@@ -368,10 +412,6 @@
         .hero-stats {
           right: 5rem;
         }
-      }
-
-      .stat-item {
-        text-align: center;
       }
 
       .stat-num {
@@ -389,6 +429,21 @@
         color: var(--text-muted);
         margin-top: 0.25rem;
         display: block;
+      }
+
+      @media (max-width: 480px) {
+        .hero-stats {
+          gap: 0.45rem;
+        }
+
+        .stat-num {
+          font-size: 1.85rem;
+        }
+
+        .stat-label {
+          font-size: 0.56rem;
+          letter-spacing: 0.12em;
+        }
       }
 
       /* ── MARQUEE BAND ── */
@@ -501,6 +556,53 @@
         font-size: 0.95rem;
       }
 
+      .about-stats-row {
+        margin-top: 2rem;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.75rem;
+      }
+
+      .about-stat {
+        border: 1px solid rgba(200, 146, 42, 0.22);
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(200, 146, 42, 0.05));
+        padding: 1rem 0.75rem;
+        text-align: center;
+      }
+
+      .about-stat-number {
+        display: block;
+        font-family: 'Bebas Neue', sans-serif;
+        color: var(--gold);
+        font-size: clamp(1.9rem, 4.4vw, 2.4rem);
+        letter-spacing: 0.03em;
+        line-height: 1;
+      }
+
+      .about-stat-label {
+        display: block;
+        margin-top: 0.35rem;
+        font-size: 0.72rem;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.56);
+      }
+
+      @media (max-width: 540px) {
+        .about-stats-row {
+          gap: 0.5rem;
+        }
+
+        .about-stat {
+          padding: 0.85rem 0.4rem;
+        }
+
+        .about-stat-label {
+          font-size: 0.62rem;
+          letter-spacing: 0.12em;
+        }
+      }
+
       .about-visual {
         position: relative;
       }
@@ -514,13 +616,50 @@
       }
 
       .about-card {
-        background: var(--dark2);
+        background: linear-gradient(150deg, rgba(8, 8, 8, 0.9), rgba(11, 11, 11, 0.92));
         padding: 1.8rem 1.5rem;
-        transition: background 0.3s;
+        transition:
+          transform 0.28s ease,
+          border-color 0.28s ease,
+          background 0.3s;
+        position: relative;
+        overflow: hidden;
+        min-height: 230px;
+        border: 1px solid rgba(200, 146, 42, 0.08);
+        isolation: isolate;
       }
 
       .about-card:hover {
-        background: var(--dark3);
+        background: linear-gradient(150deg, rgba(10, 10, 10, 0.94), rgba(15, 15, 15, 0.95));
+        transform: translateY(-3px);
+        border-color: rgba(200, 146, 42, 0.32);
+      }
+
+      .about-card::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(180deg, rgba(4, 4, 4, 0.16) 0%, rgba(4, 4, 4, 0.74) 68%, rgba(4, 4, 4, 0.94) 100%),
+          var(--about-image);
+        background-size: cover;
+        background-position: center;
+        opacity: 0.56;
+        transition:
+          opacity 0.3s ease,
+          transform 0.35s ease;
+        transform: scale(1.01);
+        z-index: 0;
+      }
+
+      .about-card:hover::after {
+        opacity: 0.72;
+        transform: scale(1.04);
+      }
+
+      .about-card > * {
+        position: relative;
+        z-index: 1;
       }
 
       .about-card-icon {
@@ -539,8 +678,20 @@
 
       .about-card p {
         font-size: 0.78rem;
-        color: var(--text-muted);
+        color: rgba(245, 245, 245, 0.84);
         line-height: 1.6;
+        max-width: 36ch;
+      }
+
+      @media (max-width: 740px) {
+        .about-card-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .about-card {
+          min-height: 200px;
+          padding: 1.45rem 1.2rem;
+        }
       }
 
       /* ── PRODUCTS ── */
@@ -587,12 +738,21 @@
       }
 
       .product-card {
-        background: var(--dark);
+        background: linear-gradient(160deg, rgba(6, 6, 6, 0.92), rgba(10, 10, 10, 0.88));
         padding: 2rem 1.8rem;
         position: relative;
         overflow: hidden;
         cursor: default;
-        transition: background 0.3s;
+        transition:
+          transform 0.28s ease,
+          border-color 0.28s ease,
+          background 0.3s;
+        min-height: 280px;
+        border: 1px solid rgba(200, 146, 42, 0.1);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        isolation: isolate;
       }
 
       .product-card::before {
@@ -604,24 +764,56 @@
         height: 2px;
         background: var(--gold);
         transition: width 0.4s ease;
+        z-index: 3;
+      }
+
+      .product-card::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(180deg, rgba(5, 5, 5, 0.12) 0%, rgba(5, 5, 5, 0.76) 70%, rgba(5, 5, 5, 0.95) 100%),
+          var(--product-image);
+        background-size: cover;
+        background-position: center;
+        opacity: 0.58;
+        transform: scale(1.01);
+        transition:
+          transform 0.38s ease,
+          opacity 0.32s ease;
+        z-index: 0;
       }
 
       .product-card:hover::before {
         width: 100%;
       }
       .product-card:hover {
-        background: var(--dark3);
+        background: linear-gradient(160deg, rgba(9, 9, 9, 0.94), rgba(12, 12, 12, 0.9));
+        transform: translateY(-4px);
+        border-color: rgba(200, 146, 42, 0.35);
+      }
+
+      .product-card:hover::after {
+        opacity: 0.72;
+        transform: scale(1.05);
+      }
+
+      .product-card > * {
+        position: relative;
+        z-index: 2;
       }
 
       .product-card-num {
         font-family: 'Bebas Neue', sans-serif;
         font-size: 3.5rem;
-        color: rgba(200, 146, 42, 0.08);
+        color: rgba(255, 255, 255, 0.2);
         position: absolute;
         top: 0.5rem;
         right: 1rem;
         line-height: 1;
         pointer-events: none;
+        text-shadow: 0 2px 12px rgba(0, 0, 0, 0.38);
+        z-index: 2;
       }
 
       .product-icon {
@@ -640,8 +832,9 @@
 
       .product-card p {
         font-size: 0.8rem;
-        color: var(--text-muted);
+        color: rgba(245, 245, 245, 0.88);
         line-height: 1.7;
+        max-width: 43ch;
       }
 
       .product-tags {
@@ -655,10 +848,23 @@
         font-size: 0.65rem;
         letter-spacing: 0.1em;
         text-transform: uppercase;
-        color: var(--gold);
-        border: 1px solid rgba(200, 146, 42, 0.3);
+        color: #f6d58a;
+        border: 1px solid rgba(246, 213, 138, 0.36);
+        background: rgba(6, 6, 6, 0.5);
+        backdrop-filter: blur(2px);
         padding: 0.25rem 0.6rem;
         border-radius: 1px;
+      }
+
+      @media (max-width: 640px) {
+        .product-card {
+          min-height: 250px;
+          padding: 1.7rem 1.2rem;
+        }
+
+        .product-card::after {
+          opacity: 0.65;
+        }
       }
 
       /* ── PROJECTS ── */
@@ -787,6 +993,62 @@
         text-decoration: none;
       }
 
+      .pdf-mobile-card {
+        display: grid;
+        gap: 1rem;
+        margin-top: 1.25rem;
+        border: 1px solid rgba(200, 146, 42, 0.28);
+        background:
+          radial-gradient(circle at 90% 10%, rgba(200, 146, 42, 0.16), transparent 42%), linear-gradient(145deg, #101010 0%, #0d0d0d 50%, #121212 100%);
+        padding: 1.1rem;
+      }
+
+      .pdf-mobile-meta {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+      }
+
+      .pdf-mobile-icon {
+        width: 42px;
+        height: 42px;
+        border: 1px solid rgba(200, 146, 42, 0.35);
+        color: var(--gold);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      .pdf-mobile-meta strong {
+        font-family: 'Bebas Neue', sans-serif;
+        letter-spacing: 0.08em;
+        font-size: 1.05rem;
+        color: var(--white);
+        display: block;
+      }
+
+      .pdf-mobile-meta span {
+        display: block;
+        margin-top: 0.15rem;
+        font-size: 0.72rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+      }
+
+      .pdf-mobile-note {
+        font-size: 0.82rem;
+        line-height: 1.7;
+        color: var(--text-muted);
+      }
+
+      .pdf-mobile-open {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+      }
+
       .pdf-viewer {
         border: 1px solid rgba(200, 146, 42, 0.2);
         background: #0b0b0b;
@@ -802,6 +1064,22 @@
       @media (min-width: 1024px) {
         .pdf-viewer iframe {
           min-height: 860px;
+        }
+      }
+
+      @media (max-width: 767px) {
+        .profile-note {
+          margin-bottom: 0.8rem;
+        }
+
+        .pdf-viewer {
+          display: none;
+        }
+      }
+
+      @media (min-width: 768px) {
+        .pdf-mobile-card {
+          display: none;
         }
       }
 
@@ -1273,10 +1551,18 @@
 
       /* Certifications badge row */
       .cert-row {
-        display: flex;
-        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: 1fr;
         gap: 1rem;
         margin-top: 2rem;
+        width: 100%;
+        max-width: 680px;
+      }
+
+      @media (min-width: 480px) {
+        .cert-row {
+          grid-template-columns: 1fr 1fr;
+        }
       }
 
       .cert-badge {
@@ -1420,25 +1706,39 @@
           </p>
           <p>From a single bag of cement to full-scale project supply chains, we deliver with the same commitment to quality, professionalism, and on-time performance.</p>
           <a href="#contact" class="btn-primary" style="margin-top: 1.5rem; width: fit-content"> Partner With Us </a>
+          <div class="about-stats-row">
+            <div class="about-stat">
+              <span class="about-stat-number">7+</span>
+              <span class="about-stat-label">Years Active</span>
+            </div>
+            <div class="about-stat">
+              <span class="about-stat-number">7</span>
+              <span class="about-stat-label">Mega Projects</span>
+            </div>
+            <div class="about-stat">
+              <span class="about-stat-number">20+</span>
+              <span class="about-stat-label">Product Lines</span>
+            </div>
+          </div>
         </div>
         <div class="about-visual reveal">
           <div class="about-card-grid">
-            <div class="about-card">
+            <div class="about-card" style="--about-image: url('assets/infrastructure-highways.jpeg')">
               <span class="about-card-icon">🏗️</span>
               <h4>Infrastructure</h4>
               <p>Roads, highways, canals, and mega projects across Pakistan.</p>
             </div>
-            <div class="about-card">
+            <div class="about-card" style="--about-image: url('assets/housing.jpeg')">
               <span class="about-card-icon">🏠</span>
               <h4>Housing</h4>
               <p>Complete material supply for housing schemes and residential builds.</p>
             </div>
-            <div class="about-card">
+            <div class="about-card" style="--about-image: url('assets/energy.jpg')">
               <span class="about-card-icon">⚡</span>
               <h4>Energy</h4>
               <p>Solar systems and materials for power & energy projects.</p>
             </div>
-            <div class="about-card">
+            <div class="about-card" style="--about-image: url('assets/logistics.jpg')">
               <span class="about-card-icon">🚛</span>
               <h4>Logistics</h4>
               <p>Nationwide transport network for timely on-site delivery.</p>
@@ -1456,7 +1756,7 @@
         <div class="gold-divider"></div>
       </div>
       <div class="products-grid">
-        <div class="product-card reveal">
+        <div class="product-card reveal" style="--product-image: url('assets/cements.jpg')">
           <div class="product-card-num">01</div>
           <span class="product-icon">🏭</span>
           <h3>Cement</h3>
@@ -1467,7 +1767,7 @@
           </div>
         </div>
 
-        <div class="product-card reveal">
+        <div class="product-card reveal" style="--product-image: url('assets/steelandiron.jpg')">
           <div class="product-card-num">02</div>
           <span class="product-icon">⚙️</span>
           <h3>Steel & Iron</h3>
@@ -1478,7 +1778,7 @@
           </div>
         </div>
 
-        <div class="product-card reveal">
+        <div class="product-card reveal" style="--product-image: url('assets/stonesandaggregates.jpg')">
           <div class="product-card-num">03</div>
           <span class="product-icon">🪨</span>
           <h3>Stones & Aggregates</h3>
@@ -1490,7 +1790,7 @@
           </div>
         </div>
 
-        <div class="product-card reveal">
+        <div class="product-card reveal" style="--product-image: url('assets/asphalt.jpg')">
           <div class="product-card-num">04</div>
           <span class="product-icon">🛣️</span>
           <h3>Road Materials</h3>
@@ -1501,7 +1801,7 @@
           </div>
         </div>
 
-        <div class="product-card reveal">
+        <div class="product-card reveal" style="--product-image: url('assets/bricks_blocks.webp')">
           <div class="product-card-num">05</div>
           <span class="product-icon">🪵</span>
           <h3>Bricks & Blocks</h3>
@@ -1513,7 +1813,7 @@
           </div>
         </div>
 
-        <div class="product-card reveal">
+        <div class="product-card reveal" style="--product-image: url('assets/pipes_fitting.jpeg')">
           <div class="product-card-num">06</div>
           <span class="product-icon">🔧</span>
           <h3>Pipes & Fittings</h3>
@@ -1525,7 +1825,7 @@
           </div>
         </div>
 
-        <div class="product-card reveal">
+        <div class="product-card reveal" style="--product-image: url('assets/electrical_cables.jpeg')">
           <div class="product-card-num">07</div>
           <span class="product-icon">⚡</span>
           <h3>Electrical & Cables</h3>
@@ -1536,7 +1836,7 @@
           </div>
         </div>
 
-        <div class="product-card reveal">
+        <div class="product-card reveal" style="--product-image: url('assets/solarinverters.jpeg')">
           <div class="product-card-num">08</div>
           <span class="product-icon">☀️</span>
           <h3>Solar Systems</h3>
@@ -1548,7 +1848,7 @@
           </div>
         </div>
 
-        <div class="product-card reveal">
+        <div class="product-card reveal" style="--product-image: url('assets/machinery-parts.jpeg')">
           <div class="product-card-num">09</div>
           <span class="product-icon">🏗️</span>
           <h3>Machinery & Parts</h3>
@@ -1559,7 +1859,7 @@
           </div>
         </div>
 
-        <div class="product-card reveal">
+        <div class="product-card reveal" style="--product-image: url('assets/safety-materials.jpeg')">
           <div class="product-card-num">10</div>
           <span class="product-icon">🛡️</span>
           <h3>Safety & Geotextile</h3>
@@ -1570,7 +1870,7 @@
           </div>
         </div>
 
-        <div class="product-card reveal">
+        <div class="product-card reveal" style="--product-image: url('assets/interior-finishing.jpeg')">
           <div class="product-card-num">11</div>
           <span class="product-icon">🪑</span>
           <h3>Interior & Furnishing</h3>
@@ -1582,7 +1882,7 @@
           </div>
         </div>
 
-        <div class="product-card reveal">
+        <div class="product-card reveal" style="--product-image: url('assets/logistics.png')">
           <div class="product-card-num">12</div>
           <span class="product-icon">🚛</span>
           <h3>Logistics & Transport</h3>
@@ -1657,9 +1957,34 @@
           <h2>View Our <span>Profile</span></h2>
           <div class="gold-divider"></div>
           <p class="profile-note">
-            Browse the complete company profile directly below, or
-            <a href="assets/Lala Arif Profile.pdf" target="_blank" rel="noopener noreferrer">open the PDF in a new tab</a>.
+            Browse the complete company profile below on desktop.
+            <a href="assets/Lala Arif Profile.pdf" target="_blank" rel="noopener noreferrer">Open the PDF in a new tab</a> anytime.
           </p>
+        </div>
+        <div class="pdf-mobile-card reveal">
+          <div class="pdf-mobile-meta">
+            <span class="pdf-mobile-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+              </svg>
+            </span>
+            <div>
+              <strong>Company Profile PDF</strong>
+              <span>Optimized for Mobile Viewing</span>
+            </div>
+          </div>
+          <p class="pdf-mobile-note">For the best experience on phone screens, open the document in a new tab where your browser PDF viewer supports pinch zoom and quick page navigation.</p>
+          <a href="assets/Lala Arif Profile.pdf" class="btn-primary pdf-mobile-open" target="_blank" rel="noopener noreferrer">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M14 3h7v7"></path>
+              <path d="M10 14L21 3"></path>
+              <path d="M21 14v7h-7"></path>
+              <path d="M3 10V3h7"></path>
+              <path d="M3 21l7-7"></path>
+            </svg>
+            Open Profile in New Tab
+          </a>
         </div>
         <div class="pdf-viewer reveal">
           <iframe src="assets/Lala Arif Profile.pdf#view=FitH" title="Lala Arif Traders Company Profile" loading="lazy"></iframe>
