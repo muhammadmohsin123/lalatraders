@@ -90,6 +90,14 @@
         color: var(--gold);
         letter-spacing: 0.05em;
         flex-shrink: 0;
+        overflow: hidden;
+      }
+
+      .nav-logo-mark img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
       }
 
       .nav-brand-text {
@@ -745,6 +753,58 @@
         color: var(--text);
       }
 
+      /* ── PROFILE ── */
+      #profile {
+        padding: 6rem 1.5rem;
+        background: var(--dark2);
+      }
+
+      @media (min-width: 768px) {
+        #profile {
+          padding: 6rem 3rem;
+        }
+      }
+      @media (min-width: 1024px) {
+        #profile {
+          padding: 8rem 5rem;
+        }
+      }
+
+      .profile-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .profile-note {
+        color: var(--text-muted);
+        font-size: 0.85rem;
+        margin-top: 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .profile-note a {
+        color: var(--gold);
+        text-decoration: none;
+      }
+
+      .pdf-viewer {
+        border: 1px solid rgba(200, 146, 42, 0.2);
+        background: #0b0b0b;
+      }
+
+      .pdf-viewer iframe {
+        width: 100%;
+        min-height: 560px;
+        border: 0;
+        display: block;
+      }
+
+      @media (min-width: 1024px) {
+        .pdf-viewer iframe {
+          min-height: 860px;
+        }
+      }
+
       /* ── WHY US ── */
       #why {
         padding: 6rem 1.5rem;
@@ -1245,6 +1305,7 @@
       <a href="#about" onclick="closeMobile()">About</a>
       <a href="#products" onclick="closeMobile()">Products</a>
       <a href="#projects" onclick="closeMobile()">Projects</a>
+      <a href="#profile" onclick="closeMobile()">Profile</a>
       <a href="#why" onclick="closeMobile()">Why Us</a>
       <a href="#contact" onclick="closeMobile()">Contact</a>
     </div>
@@ -1252,7 +1313,7 @@
     <!-- ── NAV ── -->
     <nav>
       <a href="#hero" class="nav-brand">
-        <div class="nav-logo-mark">LA</div>
+        <div class="nav-logo-mark"><img src="assets/lala-logo.jpeg" alt="Lala Arif Traders logo" /></div>
         <div class="nav-brand-text">
           <span>Lala Arif Traders</span>
           <span>SMC-Private Limited</span>
@@ -1262,6 +1323,7 @@
         <li><a href="#about">About</a></li>
         <li><a href="#products">Products</a></li>
         <li><a href="#projects">Projects</a></li>
+        <li><a href="#profile">Profile</a></li>
         <li><a href="#why">Why Us</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -1587,6 +1649,24 @@
       </div>
     </section>
 
+    <!-- ── PROFILE ── -->
+    <section id="profile">
+      <div class="profile-inner">
+        <div class="reveal">
+          <div class="section-label">Company Profile</div>
+          <h2>View Our <span>Profile</span></h2>
+          <div class="gold-divider"></div>
+          <p class="profile-note">
+            Browse the complete company profile directly below, or
+            <a href="assets/Lala Arif Profile.pdf" target="_blank" rel="noopener noreferrer">open the PDF in a new tab</a>.
+          </p>
+        </div>
+        <div class="pdf-viewer reveal">
+          <iframe src="assets/Lala Arif Profile.pdf#view=FitH" title="Lala Arif Traders Company Profile" loading="lazy"></iframe>
+        </div>
+      </div>
+    </section>
+
     <!-- ── WHY US ── -->
     <section id="why">
       <div class="why-inner">
@@ -1730,7 +1810,7 @@
         <div class="footer-top">
           <div class="footer-brand">
             <div class="nav-brand" style="text-decoration: none; display: flex; align-items: center; gap: 0.6rem">
-              <div class="nav-logo-mark" style="width: 40px; height: 40px; font-size: 1.1rem">LA</div>
+              <div class="nav-logo-mark" style="width: 40px; height: 40px; font-size: 1.1rem"><img src="assets/lala-logo.jpeg" alt="Lala Arif Traders logo" /></div>
               <div class="nav-brand-text">
                 <span style="font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; color: var(--gold); letter-spacing: 0.12em">Lala Arif Traders</span>
                 <span style="font-size: 0.65rem; color: var(--text-muted); letter-spacing: 0.15em; text-transform: uppercase">SMC-Private Limited</span>
@@ -1744,6 +1824,7 @@
               <li><a href="#about">About Us</a></li>
               <li><a href="#products">Products</a></li>
               <li><a href="#projects">Projects</a></li>
+              <li><a href="#profile">Profile</a></li>
               <li><a href="#why">Why Us</a></li>
               <li><a href="#contact">Contact</a></li>
             </ul>
