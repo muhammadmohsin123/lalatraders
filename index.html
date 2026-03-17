@@ -1570,6 +1570,347 @@
         color: var(--gold);
         font-weight: bold;
       }
+
+      /* ── WORKFORCE SECTION ── */
+      #workforce {
+        padding: 6rem 1.5rem;
+        position: relative;
+        background: linear-gradient(180deg, var(--dark) 0%, var(--dark2) 50%, var(--dark) 100%);
+      }
+
+      @media (min-width: 768px) {
+        #workforce { padding: 6rem 3rem; }
+      }
+      @media (min-width: 1024px) {
+        #workforce { padding: 8rem 5rem; }
+      }
+
+      .workforce-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .workforce-intro {
+        display: grid;
+        gap: 2.5rem;
+        margin-bottom: 4rem;
+      }
+
+      @media (min-width: 900px) {
+        .workforce-intro {
+          grid-template-columns: 1fr 1fr;
+          align-items: center;
+        }
+      }
+
+      .workforce-intro-text p {
+        color: var(--text-muted);
+        font-size: 0.92rem;
+        line-height: 1.8;
+        margin-top: 1rem;
+      }
+
+      .workforce-stats-row {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        margin-top: 1.5rem;
+      }
+
+      @media (min-width: 600px) {
+        .workforce-stats-row {
+          grid-template-columns: repeat(4, 1fr);
+        }
+      }
+
+      .workforce-stat {
+        background: linear-gradient(135deg, rgba(200, 146, 42, 0.08), transparent);
+        border: 1px solid rgba(200, 146, 42, 0.15);
+        padding: 1.2rem 1rem;
+        text-align: center;
+      }
+
+      .workforce-stat-number {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 2rem;
+        color: var(--gold);
+        line-height: 1;
+      }
+
+      .workforce-stat-label {
+        font-size: 0.65rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        margin-top: 0.4rem;
+      }
+
+      /* Services Grid */
+      .workforce-services-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        margin-top: 2.5rem;
+      }
+
+      @media (min-width: 600px) {
+        .workforce-services-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media (min-width: 900px) {
+        .workforce-services-grid {
+          grid-template-columns: repeat(4, 1fr);
+        }
+      }
+
+      .wf-service-card {
+        background: var(--dark3);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        padding: 1.5rem 1.2rem;
+        transition: border-color 0.3s, transform 0.3s;
+        position: relative;
+      }
+
+      .wf-service-card:hover {
+        border-color: rgba(200, 146, 42, 0.4);
+        transform: translateY(-3px);
+      }
+
+      .wf-service-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--gold);
+        transition: width 0.4s ease;
+      }
+
+      .wf-service-card:hover::before {
+        width: 100%;
+      }
+
+      .wf-service-num {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 1.8rem;
+        color: rgba(200, 146, 42, 0.25);
+        line-height: 1;
+        margin-bottom: 0.6rem;
+      }
+
+      .wf-service-card h4 {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--white);
+        margin-bottom: 0.5rem;
+      }
+
+      .wf-service-card p {
+        font-size: 0.78rem;
+        color: var(--text-muted);
+        line-height: 1.7;
+      }
+
+      /* Industries & Regions */
+      .workforce-two-col {
+        display: grid;
+        gap: 2.5rem;
+        margin-top: 4rem;
+      }
+
+      @media (min-width: 900px) {
+        .workforce-two-col {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      .wf-panel {
+        background: var(--dark3);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        padding: 2rem 1.5rem;
+      }
+
+      .wf-panel h3 {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 1.6rem;
+        color: var(--white);
+        letter-spacing: 0.05em;
+        margin-bottom: 1.2rem;
+      }
+
+      .wf-tag-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      .wf-tag {
+        font-size: 0.72rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--gold);
+        background: rgba(200, 146, 42, 0.1);
+        border: 1px solid rgba(200, 146, 42, 0.2);
+        padding: 0.4rem 0.8rem;
+      }
+
+      .wf-region-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+      }
+
+      .wf-region-item {
+        display: flex;
+        gap: 1rem;
+        align-items: flex-start;
+        padding-bottom: 0.8rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      }
+
+      .wf-region-item:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+
+      .wf-region-badge {
+        font-size: 0.62rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        background: var(--gold);
+        color: var(--dark);
+        padding: 0.25rem 0.6rem;
+        font-weight: 600;
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+
+      .wf-region-detail {
+        font-size: 0.82rem;
+        color: var(--text-muted);
+        line-height: 1.6;
+      }
+
+      .wf-region-detail strong {
+        color: var(--text);
+        display: block;
+        font-size: 0.85rem;
+      }
+
+      /* Deployment Process */
+      .workforce-process {
+        margin-top: 4rem;
+      }
+
+      .wf-process-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+
+      @media (min-width: 600px) {
+        .wf-process-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .wf-process-grid {
+          grid-template-columns: repeat(4, 1fr);
+        }
+      }
+
+      .wf-step {
+        background: linear-gradient(135deg, rgba(200, 146, 42, 0.06), transparent);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        padding: 1.5rem 1.2rem;
+        position: relative;
+        transition: border-color 0.3s;
+      }
+
+      .wf-step:hover {
+        border-color: rgba(200, 146, 42, 0.3);
+      }
+
+      .wf-step-num {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 2.2rem;
+        color: var(--gold);
+        line-height: 1;
+        margin-bottom: 0.5rem;
+      }
+
+      .wf-step h4 {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--white);
+        margin-bottom: 0.4rem;
+      }
+
+      .wf-step p {
+        font-size: 0.78rem;
+        color: var(--text-muted);
+        line-height: 1.7;
+      }
+
+      /* Workforce CTA */
+      .workforce-cta {
+        margin-top: 3rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        align-items: center;
+      }
+
+      /* Workforce Profile Viewer */
+      .wf-profile-viewer {
+        margin-top: 3rem;
+        border: 1px solid rgba(200, 146, 42, 0.15);
+        background: var(--dark3);
+      }
+
+      .wf-profile-viewer iframe {
+        width: 100%;
+        height: 600px;
+        border: none;
+        display: block;
+      }
+
+      @media (max-width: 768px) {
+        .wf-profile-viewer {
+          display: none;
+        }
+      }
+
+      .wf-profile-mobile {
+        display: none;
+        margin-top: 2rem;
+      }
+
+      @media (max-width: 768px) {
+        .wf-profile-mobile {
+          display: block;
+        }
+      }
+
+      .wf-profile-mobile-card {
+        background: var(--dark3);
+        border: 1px solid rgba(200, 146, 42, 0.2);
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .wf-profile-mobile-card p {
+        font-size: 0.82rem;
+        color: var(--text-muted);
+        line-height: 1.6;
+      }
     </style>
   </head>
   <body>
@@ -1579,6 +1920,7 @@
       <a href="#about" onclick="closeMobile()">About</a>
       <a href="#products" onclick="closeMobile()">Products</a>
       <a href="#projects" onclick="closeMobile()">Projects</a>
+      <a href="#workforce" onclick="closeMobile()">Workforce</a>
       <a href="#profile" onclick="closeMobile()">Profile</a>
       <a href="#why" onclick="closeMobile()">Why Us</a>
       <a href="#contact" onclick="closeMobile()">Contact</a>
@@ -1597,6 +1939,7 @@
         <li><a href="#about">About</a></li>
         <li><a href="#products">Products</a></li>
         <li><a href="#projects">Projects</a></li>
+        <li><a href="#workforce">Workforce</a></li>
         <li><a href="#profile">Profile</a></li>
         <li><a href="#why">Why Us</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -1664,6 +2007,8 @@
         <div class="marquee-item">Scaffolding</div>
         <div class="marquee-item">Geotextile</div>
         <div class="marquee-item">Logistics</div>
+        <div class="marquee-item">Manpower Supply</div>
+        <div class="marquee-item">Workforce Solutions</div>
         <div class="marquee-item">DG Cement</div>
         <div class="marquee-item">Fauji Cement</div>
         <div class="marquee-item">Mughal Steel</div>
@@ -1674,6 +2019,8 @@
         <div class="marquee-item">Scaffolding</div>
         <div class="marquee-item">Geotextile</div>
         <div class="marquee-item">Logistics</div>
+        <div class="marquee-item">Manpower Supply</div>
+        <div class="marquee-item">Workforce Solutions</div>
       </div>
     </div>
 
@@ -1921,6 +2268,241 @@
       </div>
     </section>
 
+    <!-- ── WORKFORCE SOLUTIONS ── -->
+    <section id="workforce">
+      <div class="workforce-inner">
+
+        <!-- Intro -->
+        <div class="workforce-intro">
+          <div class="workforce-intro-text reveal">
+            <div class="section-label">Arif Workforce Solutions</div>
+            <h2>Skilled <span>Manpower</span> &amp; Workforce Solutions</h2>
+            <div class="gold-divider"></div>
+            <p>A subsidiary of Lala Arif Traders (SMC-Private) Limited — empowering projects with skilled manpower and expert resources, locally and globally. We supply pre-vetted skilled, semi-skilled and unskilled labor, technical professionals, equipment operators and project support teams to construction, energy, industrial and infrastructure clients.</p>
+            <p style="margin-top:0.8rem">Bundled access to manpower, materials and machinery through our parent-company supply chain sets us apart — clients get a single partner for complete project execution.</p>
+          </div>
+          <div class="reveal">
+            <div class="workforce-stats-row">
+              <div class="workforce-stat">
+                <div class="workforce-stat-number">500+</div>
+                <div class="workforce-stat-label">Workers</div>
+              </div>
+              <div class="workforce-stat">
+                <div class="workforce-stat-number">7+</div>
+                <div class="workforce-stat-label">Years Experience</div>
+              </div>
+              <div class="workforce-stat">
+                <div class="workforce-stat-number">7</div>
+                <div class="workforce-stat-label">Major Projects</div>
+              </div>
+              <div class="workforce-stat">
+                <div class="workforce-stat-number">5+</div>
+                <div class="workforce-stat-label">Regions Served</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service Portfolio -->
+        <div class="reveal">
+          <div class="section-label">Service Portfolio</div>
+          <h2>Comprehensive <span>Workforce</span> Services</h2>
+          <div class="gold-divider"></div>
+        </div>
+        <div class="workforce-services-grid">
+          <div class="wf-service-card reveal">
+            <div class="wf-service-num">01</div>
+            <h4>Manpower Supply &amp; Staffing</h4>
+            <p>Pre-vetted workers for sites, factories, warehouses and installations.</p>
+          </div>
+          <div class="wf-service-card reveal">
+            <div class="wf-service-num">02</div>
+            <h4>Technical &amp; Professional Staffing</h4>
+            <p>Engineers, surveyors, safety officers, inspectors, coordinators and supervisors.</p>
+          </div>
+          <div class="wf-service-card reveal">
+            <div class="wf-service-num">03</div>
+            <h4>Equipment Operators &amp; Drivers</h4>
+            <p>Licensed operators for excavators, cranes, loaders, bulldozers, rollers and transport.</p>
+          </div>
+          <div class="wf-service-card reveal">
+            <div class="wf-service-num">04</div>
+            <h4>International Labor Deployment</h4>
+            <p>Recruitment, documentation, visa processing and overseas placement support.</p>
+          </div>
+          <div class="wf-service-card reveal">
+            <div class="wf-service-num">05</div>
+            <h4>Project-Based Workforce Teams</h4>
+            <p>Turnkey labor teams scaled to project phases and delivery milestones.</p>
+          </div>
+          <div class="wf-service-card reveal">
+            <div class="wf-service-num">06</div>
+            <h4>Bundled Solutions</h4>
+            <p>Integrated packages combining construction materials, machinery and labor.</p>
+          </div>
+          <div class="wf-service-card reveal">
+            <div class="wf-service-num">07</div>
+            <h4>Training &amp; Skill Development</h4>
+            <p>Safety, technical and compliance-focused upskilling through in-house and partner programs.</p>
+          </div>
+          <div class="wf-service-card reveal">
+            <div class="wf-service-num">08</div>
+            <h4>Facility Management &amp; Support</h4>
+            <p>Security, housekeeping, camp management, catering and admin support.</p>
+          </div>
+        </div>
+
+        <!-- Industries & International Operations -->
+        <div class="workforce-two-col">
+          <div class="wf-panel reveal">
+            <h3>Industries Served</h3>
+            <div class="wf-tag-list">
+              <span class="wf-tag">Construction &amp; Infrastructure</span>
+              <span class="wf-tag">Oil, Gas &amp; Petrochemical</span>
+              <span class="wf-tag">Energy &amp; Power</span>
+              <span class="wf-tag">Mining &amp; Minerals</span>
+              <span class="wf-tag">Industrial &amp; Manufacturing</span>
+              <span class="wf-tag">Facility Management</span>
+              <span class="wf-tag">Telecommunications</span>
+            </div>
+          </div>
+          <div class="wf-panel reveal">
+            <h3>International Operations</h3>
+            <div class="wf-region-list">
+              <div class="wf-region-item">
+                <span class="wf-region-badge">Middle East</span>
+                <div class="wf-region-detail">
+                  <strong>Saudi Arabia, UAE, Qatar, Oman, Bahrain, Kuwait</strong>
+                  Construction, oil &amp; gas, infrastructure
+                </div>
+              </div>
+              <div class="wf-region-item">
+                <span class="wf-region-badge">Africa</span>
+                <div class="wf-region-detail">
+                  <strong>Libya, Algeria, Nigeria, Kenya, South Africa</strong>
+                  Construction, mining, energy
+                </div>
+              </div>
+              <div class="wf-region-item">
+                <span class="wf-region-badge">Central Asia</span>
+                <div class="wf-region-detail">
+                  <strong>Kazakhstan, Uzbekistan, Turkmenistan</strong>
+                  Infrastructure, energy, industrial
+                </div>
+              </div>
+              <div class="wf-region-item">
+                <span class="wf-region-badge">SE Asia</span>
+                <div class="wf-region-detail">
+                  <strong>Malaysia, Indonesia, Brunei</strong>
+                  Construction, manufacturing
+                </div>
+              </div>
+              <div class="wf-region-item">
+                <span class="wf-region-badge">Europe</span>
+                <div class="wf-region-detail">
+                  <strong>Romania, Poland, Czech Republic</strong>
+                  Construction, industrial staffing
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Deployment Process -->
+        <div class="workforce-process">
+          <div class="reveal">
+            <div class="section-label">How We Work</div>
+            <h2>Recruitment &amp; <span>Deployment</span> Process</h2>
+            <div class="gold-divider"></div>
+          </div>
+          <div class="wf-process-grid">
+            <div class="wf-step reveal">
+              <div class="wf-step-num">01</div>
+              <h4>Requirement Analysis</h4>
+              <p>Scope, quantities, skill levels, timing and site conditions assessment.</p>
+            </div>
+            <div class="wf-step reveal">
+              <div class="wf-step-num">02</div>
+              <h4>Talent Sourcing &amp; Screening</h4>
+              <p>Database sourcing, field recruitment and background validation.</p>
+            </div>
+            <div class="wf-step reveal">
+              <div class="wf-step-num">03</div>
+              <h4>Medical &amp; Fitness Clearance</h4>
+              <p>Approved medical examinations before mobilization.</p>
+            </div>
+            <div class="wf-step reveal">
+              <div class="wf-step-num">04</div>
+              <h4>Skills Assessment &amp; Training</h4>
+              <p>Trade tests and project-specific safety or equipment training.</p>
+            </div>
+            <div class="wf-step reveal">
+              <div class="wf-step-num">05</div>
+              <h4>Documentation &amp; Visa Processing</h4>
+              <p>Passport checks, visa stamping, insurance and emigration clearance.</p>
+            </div>
+            <div class="wf-step reveal">
+              <div class="wf-step-num">06</div>
+              <h4>Mobilization &amp; Deployment</h4>
+              <p>Travel, site orientation and supervised handover to the client.</p>
+            </div>
+            <div class="wf-step reveal">
+              <div class="wf-step-num">07</div>
+              <h4>Ongoing Support &amp; Management</h4>
+              <p>Performance follow-up, replacement support, payroll and grievance handling.</p>
+            </div>
+            <div class="wf-step reveal" style="display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:linear-gradient(135deg, rgba(200,146,42,0.15), rgba(200,146,42,0.05));border-color:rgba(200,146,42,0.3)">
+              <div class="wf-step-num" style="font-size:1.4rem;margin-bottom:0.2rem">7–14 Days</div>
+              <h4 style="color:var(--gold)">Local Mobilization</h4>
+              <p style="margin-top:0.3rem">21–30 days for international deployments</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Workforce Profile PDF -->
+        <div style="margin-top:3rem" class="reveal">
+          <div class="section-label">Workforce Profile</div>
+          <h2>View Workforce <span>Company Profile</span></h2>
+          <div class="gold-divider"></div>
+          <p style="color:var(--text-muted);font-size:0.9rem;line-height:1.8;max-width:600px">Browse the complete Arif Workforce Solutions company profile below, or <a href="assets/Arif_Workforce_Solutions_Company KSA.pdf" target="_blank" rel="noopener noreferrer" style="color:var(--gold)">open the PDF in a new tab</a>.</p>
+        </div>
+        <div class="wf-profile-viewer reveal">
+          <iframe src="assets/Arif_Workforce_Solutions_Company KSA.pdf#view=FitH" title="Arif Workforce Solutions Company Profile" loading="lazy"></iframe>
+        </div>
+        <div class="wf-profile-mobile">
+          <div class="wf-profile-mobile-card reveal">
+            <div style="display:flex;align-items:center;gap:0.8rem">
+              <span style="width:42px;height:42px;border:1px solid rgba(200,146,42,0.3);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+              </span>
+              <div>
+                <strong style="display:block;color:var(--white);font-size:0.9rem">Workforce Solutions Profile</strong>
+                <span style="font-size:0.75rem;color:var(--text-muted)">PDF Document</span>
+              </div>
+            </div>
+            <p>For the best experience on mobile, open the document in a new tab.</p>
+            <a href="assets/Arif_Workforce_Solutions_Company KSA.pdf" class="btn-primary" target="_blank" rel="noopener noreferrer" style="width:fit-content">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 3h7v7"></path><path d="M10 14L21 3"></path><path d="M21 14v7h-7"></path><path d="M3 10V3h7"></path><path d="M3 21l7-7"></path></svg>
+              Open Workforce Profile
+            </a>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="workforce-cta reveal">
+          <a href="#contact" class="btn-primary">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 3 5.18 2 2 0 0 1 5.11 3h3a2 2 0 0 1 2 1.72c.12.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 12a16 16 0 0 0 6 6l2.36-2.36a2 2 0 0 1 2.11-.45c.91.34 1.85.58 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            Request Workforce Quote
+          </a>
+          <a href="https://wa.me/923000222270?text=Hi%2C%20I%20need%20workforce%20solutions%20for%20my%20project" class="btn-outline" target="_blank" rel="noopener noreferrer">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 0 0 .612.616l4.527-1.47A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22a9.94 9.94 0 0 1-5.39-1.587l-.386-.232-2.689.873.895-2.631-.253-.4A9.96 9.96 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+            WhatsApp Us
+          </a>
+        </div>
+
+      </div>
+    </section>
+
     <!-- ── PROFILE ── -->
     <section id="profile">
       <div class="profile-inner">
@@ -2122,7 +2704,7 @@
                 <span style="font-size: 0.65rem; color: var(--text-muted); letter-spacing: 0.15em; text-transform: uppercase">SMC-Private Limited</span>
               </div>
             </div>
-            <p>Pakistan's trusted partner for construction materials, infrastructure supply, and nationwide logistics. Building a stronger Pakistan since 2017.</p>
+            <p>Pakistan's trusted partner for construction materials, infrastructure supply, workforce solutions and nationwide logistics. Building a stronger Pakistan since 2017.</p>
           </div>
           <div class="footer-links">
             <h5>Navigation</h5>
@@ -2130,6 +2712,7 @@
               <li><a href="#about">About Us</a></li>
               <li><a href="#products">Products</a></li>
               <li><a href="#projects">Projects</a></li>
+              <li><a href="#workforce">Workforce</a></li>
               <li><a href="#profile">Profile</a></li>
               <li><a href="#why">Why Us</a></li>
               <li><a href="#contact">Contact</a></li>
