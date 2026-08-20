@@ -304,6 +304,16 @@
       .supply-item p { min-height: 4.5em; margin-bottom: 18px; color: rgba(255,255,255,.56); font-size: .82rem; }
       .supply-tags { display: flex; flex-wrap: wrap; gap: 7px 14px; color: var(--signal); font-size: .59rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
       .supply-tags span + span::before { margin-right: 14px; color: rgba(255,255,255,.3); content: '/'; }
+      .extended-catalogue { width: var(--page); margin: clamp(90px, 9vw, 130px) auto 0; }
+      .catalogue-heading { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: end; margin-bottom: 42px; padding-top: 24px; border-top: 1px solid var(--line-light); }
+      .catalogue-heading h3 { max-width: 650px; margin: 0; font-size: clamp(3rem, 5.5vw, 5.8rem); font-weight: 600; letter-spacing: -.02em; line-height: .88; text-transform: uppercase; }
+      .catalogue-heading p { max-width: 570px; margin: 0; color: rgba(255,255,255,.56); font-size: .92rem; }
+      .catalogue-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--line-light); border-left: 1px solid var(--line-light); }
+      .catalogue-entry { min-width: 0; display: grid; grid-template-columns: 42px minmax(140px, .85fr) 1.15fr; gap: 16px; align-items: start; padding: 20px; border-right: 1px solid var(--line-light); border-bottom: 1px solid var(--line-light); transition: background 180ms ease; }
+      .catalogue-entry:hover { background: rgba(232,163,35,.055); }
+      .catalogue-entry span { color: var(--signal); font-family: var(--display); font-size: .92rem; line-height: 1.15; }
+      .catalogue-entry h4 { margin: 0; font-size: 1.12rem; font-weight: 600; line-height: 1.1; text-transform: uppercase; }
+      .catalogue-entry p { margin: 0; color: rgba(255,255,255,.48); font-size: .72rem; line-height: 1.55; }
 
       /* Projects */
       .projects { background: var(--green); color: var(--white); }
@@ -509,6 +519,8 @@
         .supply-grid { grid-template-columns: 1fr 1fr; }
         .supply-image { height: 180px; }
         .supply-item p { min-height: 0; }
+        .catalogue-heading, .catalogue-list { grid-template-columns: 1fr; }
+        .catalogue-heading { align-items: start; }
         .project-list { grid-template-columns: 1fr; border-left: 0; }
         .project-item, .project-item:last-child { grid-column: auto; min-height: 0; border-right: 0; border-bottom: 1px solid var(--line-light); }
         .project-index { margin-bottom: 28px; }
@@ -536,6 +548,9 @@
         .supply-grid { grid-template-columns: 1fr; border-left: 0; }
         .supply-item { padding: 14px 0 30px; border-right: 0; }
         .supply-image { height: 240px; }
+        .catalogue-list { border-left: 0; }
+        .catalogue-entry { grid-template-columns: 34px 1fr; padding: 18px 0; border-right: 0; }
+        .catalogue-entry p { grid-column: 2; }
         .service-ledger { grid-template-columns: 1fr; }
         .service-item:nth-child(odd), .service-item:nth-child(even) { padding-right: 0; padding-left: 0; border-right: 0; }
         .region-row { grid-template-columns: 1fr; gap: 5px; }
@@ -645,10 +660,10 @@
       <section class="supply" id="products">
         <div class="supply-header reveal">
           <div>
-            <p class="eyebrow light">Supply catalogue / 01—12</p>
+            <p class="eyebrow light">Supply catalogue / 01—50</p>
             <h2>Everything the<br /><em>site demands.</em></h2>
           </div>
-          <p class="section-intro">A broad, coordinated supply network for civil works, structural construction, utilities, energy, interiors and site operations.</p>
+          <p class="section-intro">A coordinated supply network spanning civil works, utilities, energy, interiors, site operations, office systems and everyday project essentials.</p>
         </div>
         <div class="supply-grid">
           <article class="supply-item reveal">
@@ -723,6 +738,53 @@
             <p>Nationwide transportation built around dependable, on-site delivery.</p>
             <div class="supply-tags"><span>Nationwide</span><span>On time</span></div>
           </article>
+        </div>
+
+        <div class="extended-catalogue reveal">
+          <div class="catalogue-heading">
+            <div><p class="eyebrow light">Extended procurement / 13—50</p><h3>Beyond the<br />core build.</h3></div>
+            <p>Specialist construction materials, operational equipment, office systems and daily site supplies—sourced through the same accountable procurement network.</p>
+          </div>
+          <div class="catalogue-list">
+            <article class="catalogue-entry"><span>13</span><h4>Wooden Products</h4><p>Doors, frames, plywood and timber sheets.</p></article>
+            <article class="catalogue-entry"><span>14</span><h4>Fencing Material</h4><p>Boundary fencing, barbed wire and gates.</p></article>
+            <article class="catalogue-entry"><span>15</span><h4>Chemical</h4><p>Sealants, epoxy and industrial adhesives.</p></article>
+            <article class="catalogue-entry"><span>16</span><h4>Lifting Material</h4><p>Chain slings, hooks, shackles and hoists.</p></article>
+            <article class="catalogue-entry"><span>17</span><h4>Rock Bolts &amp; Bolts</h4><p>Anchor bolts, fasteners and rock bolts.</p></article>
+            <article class="catalogue-entry"><span>18</span><h4>Concrete Pipes</h4><p>Hume pipes, precast pipes and accessories.</p></article>
+            <article class="catalogue-entry"><span>19</span><h4>Industrial Coating</h4><p>Paints, primers and protective coatings.</p></article>
+            <article class="catalogue-entry"><span>20</span><h4>Welding Material</h4><p>Welding rods, electrodes and accessories.</p></article>
+            <article class="catalogue-entry"><span>21</span><h4>Hand Tools</h4><p>Hammers, spades, screwdrivers and saws.</p></article>
+            <article class="catalogue-entry"><span>22</span><h4>Power Tools</h4><p>Drills, grinders and cutting machines.</p></article>
+            <article class="catalogue-entry"><span>23</span><h4>Electrical Material</h4><p>Cables, switches, panels and fixtures.</p></article>
+            <article class="catalogue-entry"><span>24</span><h4>Lighting Material</h4><p>LED lights, poles and street lighting.</p></article>
+            <article class="catalogue-entry"><span>25</span><h4>Heavy Machinery &amp; Spare Parts</h4><p>Excavators, rollers, graders and parts.</p></article>
+            <article class="catalogue-entry"><span>26</span><h4>Engine Oil &amp; Lubricants</h4><p>Hydraulic oil, grease and engine oil.</p></article>
+            <article class="catalogue-entry"><span>27</span><h4>Road Marking &amp; Reflectors</h4><p>Paint, studs and delineators.</p></article>
+            <article class="catalogue-entry"><span>28</span><h4>Miscellaneous Hardware</h4><p>Nuts, bolts, fasteners and anchors.</p></article>
+            <article class="catalogue-entry"><span>29</span><h4>Construction Accessories</h4><p>Scaffolding planks and formwork props.</p></article>
+            <article class="catalogue-entry"><span>30</span><h4>Industrial Equipment</h4><p>Compressors, generators and pumps.</p></article>
+            <article class="catalogue-entry"><span>31</span><h4>IT &amp; Computer Accessories</h4><p>Laptops, desktops, keyboards, mice, monitors and networking cables.</p></article>
+            <article class="catalogue-entry"><span>32</span><h4>Printing &amp; Stationery</h4><p>Printer toners, cartridges, project sheets, attendance cards and registers.</p></article>
+            <article class="catalogue-entry"><span>33</span><h4>IT Services</h4><p>Printer repairing, toner refilling, computer maintenance and networking services.</p></article>
+            <article class="catalogue-entry"><span>34</span><h4>Solar Lighting Solutions</h4><p>Solar street pole lights, solar floodlights and integrated LED solar units.</p></article>
+            <article class="catalogue-entry"><span>35</span><h4>Office Appliances (HVAC)</h4><p>Air conditioners, split units, fans, water coolers and dispensers.</p></article>
+            <article class="catalogue-entry"><span>36</span><h4>Site Grocery &amp; Mess</h4><p>Flour, rice, cooking oil, tea, sugar, lentils (daalain) and bottled water.</p></article>
+            <article class="catalogue-entry"><span>37</span><h4>Kitchen &amp; Canteen Supplies</h4><p>Cooking utensils, burners, disposable plates and cleaning detergents.</p></article>
+            <article class="catalogue-entry"><span>38</span><h4>CCTV &amp; Security</h4><p>Security cameras, DVRs, NVRs, monitoring screens and installation cables.</p></article>
+            <article class="catalogue-entry"><span>39</span><h4>Furniture &amp; Fixtures</h4><p>Office desks, revolving chairs, filing cabinets and site bunk beds.</p></article>
+            <article class="catalogue-entry"><span>40</span><h4>Cleaning &amp; Janitorial</h4><p>Floor cleaners, mops, brooms, disinfectants and waste bins.</p></article>
+            <article class="catalogue-entry"><span>41</span><h4>Flooring &amp; Tiling</h4><p>Porcelain tiles, ceramic tiles, granite, marble, tile adhesives and grouts.</p></article>
+            <article class="catalogue-entry"><span>42</span><h4>Sanitary &amp; Bathroom Accessories</h4><p>Faucets, showers, washbasins, commodes, mixers and towel racks.</p></article>
+            <article class="catalogue-entry"><span>43</span><h4>Electrical Distribution</h4><p>DB boxes, circuit breakers, busbars and enclosures.</p></article>
+            <article class="catalogue-entry"><span>44</span><h4>Premium Wiring Accessories</h4><p>Clipsal &amp; Schneider heavy switches, sockets, dimmers and industrial plugs.</p></article>
+            <article class="catalogue-entry"><span>45</span><h4>Geosynthetics</h4><p>Geotextile fabrics, geogrids and soil-stabilization membranes.</p></article>
+            <article class="catalogue-entry"><span>46</span><h4>Waterproofing Solutions</h4><p>Geo water stoppers, PVC water stops and expansion-joint fillers.</p></article>
+            <article class="catalogue-entry"><span>47</span><h4>Aluminum &amp; Glazing</h4><p>Prime Aluminum sections, window frames, door channels and glass fittings.</p></article>
+            <article class="catalogue-entry"><span>48</span><h4>Adhesives &amp; Fillers</h4><p>Silicon sealants, PU foam, tile bond and specialized industrial glues.</p></article>
+            <article class="catalogue-entry"><span>49</span><h4>Pipes &amp; Drainage (Internal)</h4><p>PPRC pipes, UPVC fittings, floor drains and trap covers.</p></article>
+            <article class="catalogue-entry"><span>50</span><h4>Hardware &amp; Ironmongery</h4><p>Door locks, handles, hinges, door closers and cabinet fittings.</p></article>
+          </div>
         </div>
       </section>
 
@@ -860,7 +922,7 @@
               <div class="field"><label for="fname">Full name</label><input type="text" id="fname" name="full_name" placeholder="Your name" autocomplete="name" required /></div>
               <div class="field"><label for="phone">Phone / WhatsApp</label><input type="tel" id="phone" name="phone" placeholder="+92 300 0000000" autocomplete="tel" required /></div>
               <div class="field full"><label for="email">Email address</label><input type="email" id="email" name="email" placeholder="you@company.com" autocomplete="email" /></div>
-              <div class="field full"><label for="product">Product or service</label><select id="product" name="product_service"><option value="">Select a category</option><option>Cement (DG / Fauji)</option><option>Steel & Iron (Mughal)</option><option>Stones & Aggregates</option><option>Road Materials</option><option>Bricks & Concrete Blocks</option><option>Pipes & Fittings</option><option>Electrical & Cables</option><option>Solar Systems</option><option>Heavy Machinery & Spare Parts</option><option>Safety & Geotextile</option><option>Logistics & Transport</option><option>Workforce Solutions</option><option>Other</option></select></div>
+              <div class="field full"><label for="product">Product or service</label><select id="product" name="product_service"><option value="">Select a category</option><option>Cement (DG / Fauji)</option><option>Steel & Iron (Mughal)</option><option>Stones & Aggregates</option><option>Road Materials</option><option>Bricks & Concrete Blocks</option><option>Pipes & Fittings</option><option>Electrical & Cables</option><option>Solar Systems</option><option>Heavy Machinery & Spare Parts</option><option>Safety & Geotextile</option><option>Logistics & Transport</option><option>Extended Site & Office Supplies</option><option>Workforce Solutions</option><option>Other</option></select></div>
               <div class="field full"><label for="message">Project details and quantity</label><textarea id="message" name="project_details" placeholder="Scope, quantity, delivery location and timing"></textarea></div>
             </div>
             <button class="button dark" type="submit">Send enquiry</button>
